@@ -9,3 +9,9 @@ s=m.search('it is a test text')
 print(s.group(1))
 g=s.group(0)
 print(g)
+
+#等价
+s=re.search(r'(te)st(?= )','it is a test text')
+print(s.group(1))
+g=s.group(0)
+print(g)
