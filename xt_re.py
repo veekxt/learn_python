@@ -32,3 +32,7 @@ print(s)
 s=re.subn(r',','-','it,is,a,test,text')
 print(s)
 
+#为所有非数字和字母加转义
+s=re.escape('http://www.veek_xt.com')
+print(s)
+
