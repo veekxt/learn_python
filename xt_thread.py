@@ -13,3 +13,6 @@ A=threading.Thread(target=print_str,args=('AAAA',1))
 B=threading.Thread(target=print_str,args=('BBBB',2))
 A.start()
 B.start()
+
+while A.is_alive() and B.is_alive():
+    print('A thread & B thread is over !')
