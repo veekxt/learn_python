@@ -15,3 +15,10 @@ $array = array(
     )
 );
 var_dump($array["multi"]["dimensional"]["array"]);
+
+function getArray() {
+    return array(1, 2, 3);
+}
+
+// on PHP 5.4
+$secondElement = getArray()[1];
