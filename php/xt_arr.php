@@ -5,6 +5,10 @@ var_dump($myarr2);
 
 var_dump($myarr2[3]);
 
+$myarr[] = 'who'
+
+var_dump($myarr);
+
 $array = array(
     "foo" => "bar",
     42    => 24,
