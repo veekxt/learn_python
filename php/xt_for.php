@@ -1,8 +1,9 @@
 <?php
 
 $arr=['xt','bob','kevin','michel'];
+$s='';
 foreach ($arr as $my_var)
 {
-    $my_var+=2;
+    $s=' '.$my_var.$s;
 }
-echo "$my_var"
+echo "$s";
