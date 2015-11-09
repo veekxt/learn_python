@@ -20,6 +20,7 @@ $array = array(
          )
     )
 );
+//访问
 var_dump($array["multi"]["dimensional"]["array"]);
 
 function getArray() {
