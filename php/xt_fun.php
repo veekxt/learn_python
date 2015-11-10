@@ -17,3 +17,5 @@ function sum(...$numbers) {
 }
 
 echo sum(1, 2, 3, 4)."\n";
+//数组解包
+echo sum(...[1, 2,3,4])."\n";
