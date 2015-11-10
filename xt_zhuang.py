@@ -32,4 +32,5 @@ def xt_print(a):
     print(a)
     
 xt_print('hello,world')
+
 print(xt_print.__name__)#23行若没有，则这里输出“foo”
