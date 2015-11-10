@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import functools
+
 def add_call_info(fun):
     def foo(*args,**kwargs):
         print("you call a fun named: "+fun.__name__)
@@ -18,6 +20,7 @@ xt_print('hello,world')
 def foo(arg):
     print(arg)
     def add_call_info(fun):
+        @functools.wraps(fun)#这个装饰器复制fun属性到foo
         def foo(*args,**kwargs):
             print("you call a fun named: "+fun.__name__)
             fun(*args,**kwargs)
@@ -29,4 +32,4 @@ def xt_print(a):
     print(a)
     
 xt_print('hello,world')
-print(xt_print.__name__)
+print(xt_print.__name__)#23行若没有，则这里输出“foo”
