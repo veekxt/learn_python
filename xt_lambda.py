@@ -8,4 +8,3 @@ def wt():
     return lambda x:x*x
     
 print(list(map(wt(),[1,2,3])))
-

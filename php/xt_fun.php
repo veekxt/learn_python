@@ -18,4 +18,12 @@ function sum(...$numbers) {
 
 echo sum(1, 2, 3, 4)."\n";
 //数组解包
-echo sum(...[1, 2,3,4])."\n";
+echo sum(...[1, 2,3,4,5])."\n";
+//默认参数
+function makecoffee($type = "cappuccino")
+{
+    return "Making a cup of $type.\n";
+}
+echo makecoffee();
+echo makecoffee(null);
+echo makecoffee("espresso");
