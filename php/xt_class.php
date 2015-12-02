@@ -13,6 +13,6 @@ class SimpleClass
 $a=new SimPleClass();
 $a->displayVar();
 
-
+echo SimpleClass::class;
 ?>
 
