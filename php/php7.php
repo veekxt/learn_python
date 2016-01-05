@@ -1,6 +1,6 @@
 <?php
 $a="s";
-echo $a??1;
-echo $b??1;
-echo 1 <=> 2 ? 4:5;
+echo $a??1,"\n";
+echo $b??1,"\n";
+echo 1 <=> 2 ? 4:5 ,"\n";
 ?>
