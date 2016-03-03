@@ -1,4 +1,6 @@
 *.txt
 *.html
 __*
+tags
 venv
+*.swp
