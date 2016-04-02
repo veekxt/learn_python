@@ -4,3 +4,6 @@ __*
 tags
 venv
 *.swp
+*.java
+*.class
+*.tokens
