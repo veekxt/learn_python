@@ -8,6 +8,9 @@ import urllib.request
 import hashlib
 import pickle
 
+import socket
+socket.setdefaulttimeout(20)
+
 if __name__ == "__main__":
     number = 0
     repeat_count = 0
@@ -18,10 +21,14 @@ if __name__ == "__main__":
         try:
             res = urllib.request.urlopen(url);
         except:
-            print("A eeror!")
+            print("A urlopen eeror!")
             continue
         file_type = res.getheader("Content-Type").split("/")[1]
-        buf = res.read()
+        try:
+            buf = res.read()
+        except:
+            print("A read eeror!")
+            continue
         myhash.update(buf)
         hashstr = myhash.hexdigest()
         if hashstr in hashset:
@@ -37,4 +44,6 @@ if __name__ == "__main__":
             number += 1
             repeat_count = 0
             hashset.add(hashstr)
-            open("S1_range_2018/%d.%s" % (number, file_type), 'wb').write(buf)
+            print("A New IMG %d : %s" % (number, hashstr))
+            filename = "S1_range_2018/%d.%s" % (number, file_type)
+            open(filename, 'wb').write(buf)
