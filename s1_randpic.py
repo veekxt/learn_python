@@ -13,6 +13,7 @@ import threading
 import socket
 
 import hashlib
+import pickle
 
 socket.setdefaulttimeout(20)
 
@@ -346,21 +347,32 @@ def get_real_url(url, try_count=1):
 
 if __name__ == "__main__":
     number = 0
+    repeat_count = 0
     myhash = hashlib.md5()
-    hashdic = set()
+    hashset = set()
     while True:
         url = "http://ac.stage3rd.com/S1_ACG_randpic.asp"
-        res = urllib.request.urlopen(url);
+        try:
+            res = urllib.request.urlopen(url);
+        except:
+            print("A eeror!")
         file_type = res.getheader("Content-Type").split("/")[1]
         buf = res.read()
         myhash.update(buf)
         hashstr = myhash.hexdigest()
-        if myhash in hashdic:
-            print("A Repeating IMG %s", hashstr)
+        if myhash not in hashset:
+            print("A Repeating IMG %s" % hashstr)
+            repeat_count+=1
+            if repeat_count == 20 :
+                print("repeating too much, exit")
+                with open('s1_rand_pic_hash.pik', 'wb')as f:
+                    pickle.dump(hashset, f, -1)
+                break
             pass
         else:
             number += 1
-            hashdic.add(hashstr)
+            repeat_count = 0
+            hashset.add(hashstr)
             open("S1_range_2018/%d.%s" % (number, file_type), 'wb').write(buf)
 
 
