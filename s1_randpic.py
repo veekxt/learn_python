@@ -361,7 +361,7 @@ if __name__ == "__main__":
         buf = res.read()
         myhash.update(buf)
         hashstr = myhash.hexdigest()
-        if myhash not in hashset:
+        if myhash in hashset:
             print("A Repeating IMG %s" % hashstr)
             repeat_count+=1
             if repeat_count == 20 :
