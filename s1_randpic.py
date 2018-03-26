@@ -356,6 +356,7 @@ if __name__ == "__main__":
             res = urllib.request.urlopen(url);
         except:
             print("A eeror!")
+            continue
         file_type = res.getheader("Content-Type").split("/")[1]
         buf = res.read()
         myhash.update(buf)
