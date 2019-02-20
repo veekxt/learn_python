@@ -25,12 +25,11 @@ def get_waifu(n,next_do,i):
 #     f.close()
 #     print('down-ok-' + str(i))
 #     time.sleep(5)
-err = list(range(1,20))
+err = list(range(1,40001))
 
 while True:
     next_do = []
     for i,v in enumerate(err):
-        print("v is "+str(v))
         get_waifu(v,next_do,i)
     if len(next_do) == 0:
         break
