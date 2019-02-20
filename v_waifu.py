@@ -8,15 +8,14 @@ opener.addheaders = [('User-agent',
 urllib.request.install_opener(opener)
 
 def get_waifu(n,err,i):
-    request = urllib.request.urlopen('http://www.thiswaifudoesnotexist.net/example-' + str(i) + '.jpg', timeout=5)
-    with open('wf/' + 'example-' + str(i) + '.jpg', 'wb') as f:
-        try:
+    try:
+        request = urllib.request.urlopen('http://www.thiswaifudoesnotexist.net/example-' + str(i) + '.jpg', timeout=5)
+        with open('D:/wf/' + 'example-' + str(i) + '.jpg', 'wb') as f:
             f.write(request.read())
             err.pop(i)
             print('down-ok-' + str(i))
-        except:
-            print("error" + str(i))
-            err.append(i)
+    except:
+        print("error" + str(i))
 
 # for i in range(1, 40001):
 #     local_filename, headers = urllib.request.urlretrieve(
